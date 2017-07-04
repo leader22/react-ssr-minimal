@@ -6,6 +6,9 @@ const baseConf = {
       { test: /.jsx?$/, use: 'babel-loader' },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 };
 
 const serverConf = {

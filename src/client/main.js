@@ -1,3 +1,6 @@
 import React from 'react';
+import { render } from 'react-dom';
 
-console.log(React);
+import Root from '../app/root';
+
+render(<Root />, document.querySelector('main'));

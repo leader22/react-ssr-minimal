@@ -9,9 +9,7 @@ export default ({
     <title>${title}</title>
   </head>
   <body>
-    <div id="react-root">
-      ${children}
-    </div>
+    <main>${children}</main>
     <script src="./dist/client.bundle.js"></script>
   </body>
 </html>
