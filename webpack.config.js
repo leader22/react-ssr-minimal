@@ -1,5 +1,7 @@
-const webpack = require('webpack');
 const path = require('path');
+
+const webpack = require('webpack');
+const UglifyEsPlugin = require('uglify-es-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -19,7 +21,13 @@ const baseConf = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  plugins: isProd ? [new webpack.optimize.ModuleConcatenationPlugin()] : [],
+  plugins: isProd ? [
+    new webpack.DefinePlugin({
+      'process.env': { NODE_ENV: JSON.stringify('production') }
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new UglifyEsPlugin(),
+  ] : [],
 };
 
 const serverConf = {

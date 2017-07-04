@@ -9,8 +9,3 @@ npm run build
 
 NODE_ENV=production node server.bundle.js
 ```
-
-## Next
-- Tree shaking
-- Minify code for production
-  - uglify-es OR ...
