@@ -7,9 +7,11 @@ import indexRouter from './routes/index';
 const port = process.env.PORT || 3000;
 const app = express();
 
-app.use(morgan('dev'));
-app.use(express.static(path.resolve('./static')));
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+}
 
+app.use(express.static(path.resolve('./static')));
 app.use('/', indexRouter);
 
 app.listen(port, function() {
