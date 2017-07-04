@@ -13,11 +13,15 @@ class TodoApp extends React.Component {
     };
 
     this.handleChange = ev => {
-      this.setState({text: ev.target.value});
+      this.setState({ text: ev.target.value });
     };
 
     this.handleSubmit = ev => {
       ev.preventDefault();
+
+      if (this.state.text.length === 0) {
+        return;
+      }
 
       const newItem = {
         text: this.state.text,
