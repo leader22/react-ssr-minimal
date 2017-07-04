@@ -1,14 +1,25 @@
+const webpack = require('webpack');
 const path = require('path');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const baseConf = {
   module: {
     rules: [
-      { test: /.jsx?$/, use: 'babel-loader' },
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: { presets: ['react'] },
+        },
+      },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  plugins: isProd ? [new webpack.optimize.ModuleConcatenationPlugin()] : [],
 };
 
 const serverConf = {
