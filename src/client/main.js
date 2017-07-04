@@ -3,4 +3,6 @@ import { render } from 'react-dom';
 
 import Root from '../app/root';
 
-render(<Root />, document.querySelector('main'));
+const state = window.__INITIAL_STATE__;
+
+render(<Root {...state} />, document.querySelector('main'));
