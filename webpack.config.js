@@ -12,7 +12,7 @@ const serverConf = {
   target: 'node',
   entry: './src/server/main.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname),
     filename: 'server.bundle.js',
   },
 };
@@ -21,7 +21,7 @@ const clientConf = {
   target: 'web',
   entry: './src/client/main.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'static', 'dist'),
     filename: 'client.bundle.js',
   },
 };
