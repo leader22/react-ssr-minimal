@@ -9,9 +9,9 @@ const router = Router();
 
 router.get('/', (_, res) => {
   const routes = [
-    { name: 'SSR', href: '/ssr', },
-    { name: 'initial data from server', href: '/data-only', },
-    { name: 'do nothing', href: '/nothing', },
+    { name: 'ServerSideRendering', href: '/ssr', },
+    { name: 'ClientSideRendering w/ initial data from server', href: '/data-only', },
+    { name: 'Do nothing(SPA)', href: '/nothing', },
   ];
   const el = routes.map(r => `<li><a href="${r.href}">${r.name}</a></li>`).join('');
   res.send(`<ul>${el}</ul>`);
